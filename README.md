@@ -95,7 +95,7 @@ Ticket price: $10
 0. Exit
 > 1
 
-Cinema:
+cinema.Cinema:
 1 2 3 4 5 6
 1 B S S S S S
 2 S S S S S S

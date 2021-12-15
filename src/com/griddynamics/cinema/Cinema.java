@@ -31,6 +31,18 @@ public class Cinema {
     
     
     
+    private void increaseSoldTicketsAmount() {
+    	++ticketsPurchased;
+    }
+    private void increaseCurrentIncome(int ticketPrice) {
+    	currentIncome += ticketPrice;
+    }
+    private void reserveTheSeat(int row, int seat){
+    	HALL[row][seat] = 'B';
+    }
+    
+    
+    
     void showSeats() {
 
         System.out.println("\nCinema:\n"
@@ -46,13 +58,13 @@ public class Cinema {
 
     int buyTicket(int row, int seat) {
     	
-        int ticketPrice = SEATS_COUNT < 60 || row < ROWS / 2 ? 10 : 8;
+       int ticketPrice = SEATS_COUNT < 60 || row < ROWS / 2 ? 10 : 8;
+       
+       increaseSoldTicketsAmount();
+       increaseCurrentIncome(ticketPrice);
+       reserveTheSeat(row, seat);
         
-        currentIncome += ticketPrice;
-        ++ticketsPurchased;
-        HALL[row][seat] = 'B';
-        
-        return ticketPrice;
+       return ticketPrice;
         
     }
 

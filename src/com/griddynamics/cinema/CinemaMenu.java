@@ -1,14 +1,15 @@
+
 package com.griddynamics.cinema;
 
 import java.util.Scanner;
 
-public class Menu {
+public class CinemaMenu {
+	
+	private final Scanner scanner =  new Scanner(System.in);
 
-	private static final Scanner scanner =  new Scanner(System.in);
+	Cinema cinema;
 	
-	private static final Cinema cinema;
-	
-	static {
+	public CinemaMenu() {
 		
 		System.out.print("Enter the number of rows:\n> ");
         int rows = scanner.nextInt();
@@ -18,8 +19,6 @@ public class Menu {
         cinema = new Cinema(rows, seatsInEachRow);
         
 	}
-	
-	
 	
 	private void ticketPurchasingMenu() {
     	
@@ -36,7 +35,7 @@ public class Menu {
             seat = scanner.nextInt() - 1;
             
             errorMessage = row >= cinema.ROWS || seat >= cinema.SEATS_IN_EACH_ROW
-            		? "Wrong input!\n" : cinema.HALL[row][seat] == 'B'
+            		? "Wrong input!\n": cinema.HALL[row][seat] == 'B'
                     ? "That ticket has already been purchased!\n" : "";
 
             System.out.print('\n' + errorMessage);
@@ -49,7 +48,7 @@ public class Menu {
 	
 	
 	
-	public void cinemaMenu() {
+	public void cinemaMainMenu() {
 		
 		int choice;
 

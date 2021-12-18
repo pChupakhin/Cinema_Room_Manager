@@ -91,8 +91,7 @@ public class CinemaCli {
             row = scanner.nextInt();
             System.out.print("Enter a seat number in that row:\n> ");
             seat = scanner.nextInt();
-            System.out.println("row = " + row + "\tseat = " + seat);
-            System.out.println("amuntOfRows = " + amountOfRows + "\tamountOfSeatsINEachRow = " + amountOfSeatsInEachRow);
+            
             errorMessage = row > amountOfRows || seat > amountOfSeatsInEachRow
                     ? "Wrong input!\n"
                     : cinema.getHall().getRows().get(row - 1).getSeatsInEachRow().get(seat - 1).isReserved()

@@ -6,10 +6,10 @@ public class Main {
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
+    
         Cinema cinema;
         CinemaCli cli;
-    
+        
         String errorMessage = "";
         int rows;
         int seatsInEachRow;
@@ -26,10 +26,10 @@ public class Main {
                 System.out.print("Enter the number of seats in each row:\n> ");
                 seatsInEachRow = scanner.nextInt();
                 
-                if(rows > 9 || seatsInEachRow > 9 || rows < 1 || seatsInEachRow < 1) {
+                if (rows > 9 || seatsInEachRow > 9 || rows < 1 || seatsInEachRow < 1) {
                     throw new RuntimeException("rows/seats amount must be less than 10 and greater than 0");
                 }
-            } catch (RuntimeException e){
+            } catch (RuntimeException e) {
                 errorMessage = String.format("\n%s\n\n", e.getMessage());
             }
         } while (!errorMessage.isEmpty());
@@ -38,4 +38,5 @@ public class Main {
         cli = new CinemaCli(cinema);
         cli.interact();
     }
+    
 }

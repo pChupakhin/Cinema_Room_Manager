@@ -4,8 +4,8 @@ public class Cinema {
     
     private final Hall hall;
     
-    public Cinema(final int rows, final int seatsInEachRow) {
-        hall = new Hall(rows, seatsInEachRow);
+    public Cinema(final int rows, final int seats) {
+        hall = new Hall(rows, seats);
     }
     
     public Hall getHall() {

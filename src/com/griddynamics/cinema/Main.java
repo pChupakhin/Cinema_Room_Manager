@@ -5,37 +5,28 @@ import java.util.Scanner;
 public class Main {
     
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-    
-        Cinema cinema;
-        CinemaCli cli;
+        final Scanner scanner = new Scanner(System.in);
         
-        String errorMessage = "";
+        boolean isValidRowsAndSeatsAmount;
         int rows;
         int seatsInEachRow;
         
         do {
-            System.out.print(errorMessage);
+            System.out.print("Enter the number of rows:\n> ");
+            rows = scanner.nextInt();
+            System.out.print("Enter the number of seats in each row:\n> ");
+            seatsInEachRow = scanner.nextInt();
             
-            errorMessage = "";
-            rows = seatsInEachRow = 0;
-            
-            try {
-                System.out.print("Enter the number of rows:\n> ");
-                rows = scanner.nextInt();
-                System.out.print("Enter the number of seats in each row:\n> ");
-                seatsInEachRow = scanner.nextInt();
-                
-                if (rows > 9 || seatsInEachRow > 9 || rows < 1 || seatsInEachRow < 1) {
-                    throw new RuntimeException("rows/seats amount must be less than 10 and greater than 0");
-                }
-            } catch (RuntimeException e) {
-                errorMessage = String.format("\n%s\n\n", e.getMessage());
+            if (rows > 9 || seatsInEachRow > 9 || rows < 1 || seatsInEachRow < 1) {
+                System.out.println("rows amount and seats amount must be greater than 0 and less than 10");
+                isValidRowsAndSeatsAmount = false;
+            } else {
+                isValidRowsAndSeatsAmount = true;
             }
-        } while (!errorMessage.isEmpty());
+        } while (!isValidRowsAndSeatsAmount);
         
-        cinema = new Cinema(rows, seatsInEachRow);
-        cli = new CinemaCli(cinema);
+        Cinema cinema = new Cinema(rows, seatsInEachRow);
+        CinemaOperator cli = new CinemaOperator(cinema);
         cli.interact();
     }
     

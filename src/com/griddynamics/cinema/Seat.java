@@ -2,14 +2,18 @@ package com.griddynamics.cinema;
 
 public class Seat {
     
-    private boolean isReserved = false;
+    private boolean reserved;
+    
+    public Seat() {
+        reserved = false;
+    }
     
     public boolean isReserved() {
-        return isReserved;
+        return reserved;
     }
     
     public void reserve() {
-        isReserved = true;
+        reserved = true;
     }
     
     @Override

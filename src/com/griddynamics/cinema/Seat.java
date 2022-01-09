@@ -2,7 +2,7 @@ package com.griddynamics.cinema;
 
 public class Seat {
     
-    private boolean reserved;
+    private final boolean reserved;
     
     public Seat() {
         reserved = false;

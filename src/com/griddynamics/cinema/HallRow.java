@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 public class HallRow {
     
     private final List<Seat> seats;
-    int rowPosition;
+    private final int rowPosition;
     
     public HallRow(final int rowPosition, final int seatsAmount) {
         this.rowPosition = rowPosition;
